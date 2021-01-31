@@ -16,20 +16,27 @@
         </div>
       </div>
     </div>
+    <div>{{ exchanges }}</div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  async mounted() {
+     this.exchanges = await this.$CoinAPI.getSelectedCurrencies("btc", "eth", "usd");
+  },
+
+  data : () => ({
+    exchanges: {}
+  })
+};
 </script>
 
 <style scoped>
-
-.arrow  {
+.arrow {
   display: flex;
   justify-content: center;
 }
-
 </style>
 
 
