@@ -1,10 +1,7 @@
 <template>
-  <div class="layout">
-    <Header />
+  <div class="container">
     <Navigation />
-    <div>
-      <Nuxt />
-    </div>
+    <Nuxt />
   </div>
 </template>
 

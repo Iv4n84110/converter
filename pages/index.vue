@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <Converter />
-    </div>
-    <div>график</div>
+    <Converter />
+    <Chart />
   </div>
 </template>

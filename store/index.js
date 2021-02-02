@@ -2,10 +2,10 @@ export const state = () => ({
   currencies: {
     available: {
       currency: "btc",
-      value: null
+      value: 1
     },
     received: {
-      currency: "eth",
+      currency: "usd",
       value: null
     },
     exchanges: {}

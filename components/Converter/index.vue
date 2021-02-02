@@ -1,15 +1,12 @@
 <template>
-  <div>
-    <div>Конвертер</div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-5">
-          <CalcColumn :group="'available'" />
-        </div>
-        <Arrows />
-        <div class="col-5">
-          <CalcColumn :group="'received'" />
-        </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <CalcColumn :group="'available'" />
+      </div>
+      <Arrows />
+      <div class="col-5">
+        <CalcColumn :group="'received'" />
       </div>
     </div>
   </div>
@@ -35,7 +32,6 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
 
 
