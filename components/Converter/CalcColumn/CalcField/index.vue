@@ -1,19 +1,20 @@
 <template>
-  <input type="number" :value="value" @change="setValue($event)" />
+  <input type="number" :value="value" @input="setValue($event, group)" >
 </template>
 
 <script>
 export default {
-  data: () => {
-    return {
-      value: 1.01,
-    };
+  props: ["group"],
+
+  computed: {
+    value() {
+      return this.$store.getters[`${this.group}Value`];
+    },
   },
 
   methods: {
-    setValue(e) {
-      this.value = e.target.value;
-      console.log(this.value);
+    setValue(e, group) {
+        this.$store.dispatch(`${group}ValueOnChange`, e.target.value);
     },
   },
 };
