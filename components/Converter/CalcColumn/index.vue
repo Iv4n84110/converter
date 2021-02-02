@@ -2,7 +2,7 @@
   <div class="column">
     <form>
       <CalcButtons :group="group" />
-      <CalcField />
+      <CalcField :group="group" />
     </form>
   </div>
 </template>

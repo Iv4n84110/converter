@@ -6,37 +6,36 @@
         <div class="col-5">
           <CalcColumn :group="'available'" />
         </div>
-
-        <div class="col-2 arrow">
-          <img src="/arrows.svg" />
-        </div>
-
+        <Arrows />
         <div class="col-5">
           <CalcColumn :group="'received'" />
         </div>
       </div>
     </div>
-    <div>{{ exchanges }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  async mounted() {
-     this.exchanges = await this.$CoinAPI.getSelectedCurrencies("btc", "eth", "usd");
+  async fetch() {
+    this.$store.dispatch("getExchanges");
+    this.timerId = window.setInterval(() => {
+      this.$store.dispatch("getExchanges");
+    }, 30000);
   },
 
-  data : () => ({
-    exchanges: {}
-  })
+  data: () => ({
+    timerId: null,
+  }),
+
+  beforeDestroy() {
+    clearInterval(this.timerId);
+  },
 };
 </script>
 
 <style scoped>
-.arrow {
-  display: flex;
-  justify-content: center;
-}
+
 </style>
 
 

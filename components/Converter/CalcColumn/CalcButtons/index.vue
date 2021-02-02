@@ -1,8 +1,8 @@
 <template>
   <div>
-    <CalcButton :currency="'BTC'" :id="group" />
-    <CalcButton :currency="'ETH'" :id="group" />
-    <CalcButton :currency="'USD'" :id="group" />
+    <CalcButton :currency="'btc'" :group="group" />
+    <CalcButton :currency="'eth'" :group="group" />
+    <CalcButton :currency="'usd'" :group="group" />
   </div>
 </template>
 
