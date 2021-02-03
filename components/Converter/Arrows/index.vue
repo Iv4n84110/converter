@@ -50,12 +50,18 @@ svg path {
   justify-content: center;
 }
 
+.arrow > svg {
+   fill: #4A4E69;
+  height: 80px;
+  width: auto;
+}
+
 .arrow > svg:hover {
-  fill: red;
+  fill: #9A8C98
 }
 
 .arrow > svg:hover {
   cursor: pointer;
-  color: red;
+  color: #9A8C98
 }
 </style>

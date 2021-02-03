@@ -3,18 +3,18 @@
     v-if="loaded"
     :chartdata="datacollection"
     :options="options"
-    check="checking"
   />
+  <Loader v-else />
 </template>
 
 <script>
-import LineChart from "./LineChart.js";
+import LineChart from "./Line.js";
 
 export default {
   components: { LineChart },
   data: () => ({
     datacollection: null,
-    loaded: false,
+    loaded: true,
     options: {
       responsive: true,
       maintainAspectRatio: false,

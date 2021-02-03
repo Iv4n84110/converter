@@ -1,21 +1,21 @@
 <template>
   <div>
-    <div>
-    Добавить/отнять валюту
+    <div class="wrapper">
+      <PortfolioCalculator />
     </div>
-    <div>
-     Оценка портфеля в долларах
-    </div>
-    <div>
-      диаграмма валют
+      <PortfolioCurrencies />
+    <div class="wrapper">
+      <PieChart />
     </div>
   </div>
-  
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style scoped>
+.wrapper {
+  margin-top: 50px;
+}
 </style>

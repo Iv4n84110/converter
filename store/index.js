@@ -9,6 +9,10 @@ export const state = () => ({
       value: null
     },
     exchanges: {}
+  },
+  portfolio: {
+    btc: 20,
+    eth: 30
   }
 });
 
@@ -31,6 +35,13 @@ export const mutations = {
 
   setExchanges(state, res) {
     state.currencies.exchanges = res;
+  },
+
+  changePortfolioValue(state, { currency, action, value }) {
+    action === "add"
+      ? (state.portfolio[currency] += +value)
+      : (state.portfolio[currency] -= +value);
+    if (state.portfolio[currency] < 0) state.portfolio[currency] = 0;
   }
 };
 
@@ -67,8 +78,8 @@ export const actions = {
     commit("setReceivedValue", newReceivedValue(this.state));
   },
 
-  reverseCurrencies({commit}) {
-    const a = this.state.currencies.received.currency
+  reverseCurrencies({ commit }) {
+    const a = this.state.currencies.received.currency;
     commit("setReceivedCurrency", this.state.currencies.available.currency);
     commit("setAvailableCurrency", a);
     commit("setReceivedValue", newReceivedValue(this.state));
@@ -81,7 +92,20 @@ export const getters = {
   availableCurrency: s => s.currencies.available.currency,
   availableValue: s => s.currencies.available.value,
   receivedCurrency: s => s.currencies.received.currency,
-  receivedValue: s => s.currencies.received.value
+  receivedValue: s => s.currencies.received.value,
+  portfolio: s => s.portfolio,
+  portfolioBtc: s =>
+    Math.round(
+      (s.portfolio.btc / s.currencies.exchanges.btc) *
+        s.currencies.exchanges.usd *
+        1000
+    ) / 1000,
+  portfolioEth: s =>
+    Math.round(
+      (s.portfolio.eth / s.currencies.exchanges.eth) *
+        s.currencies.exchanges.usd *
+        1000
+    ) / 1000
 };
 
 const getCurrentRate = state => {

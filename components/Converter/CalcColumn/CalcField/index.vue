@@ -1,5 +1,10 @@
 <template>
-  <input type="number" :value="value" @input="setValue($event, group)" >
+  <input
+    class="form-control"
+    type="number"
+    :value="value"
+    @input="setValue($event, group)"
+  />
 </template>
 
 <script>
@@ -14,7 +19,7 @@ export default {
 
   methods: {
     setValue(e, group) {
-        this.$store.dispatch(`${group}ValueOnChange`, e.target.value);
+      this.$store.dispatch(`${group}ValueOnChange`, e.target.value);
     },
   },
 };

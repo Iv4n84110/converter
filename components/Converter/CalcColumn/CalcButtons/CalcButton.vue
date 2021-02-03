@@ -8,7 +8,9 @@
       @click="setCurrency(group, currency)"
       :checked="isActive(currency, active)"
     />
-    <label class="btn btn-secondary" :for="group + currency">{{ currency.toUpperCase() }}</label>
+    <label class="btn btn-secondary" :for="group + currency">{{
+      currency.toUpperCase()
+    }}</label>
   </div>
 </template>
 
@@ -25,10 +27,10 @@ export default {
 
   methods: {
     setCurrency(group, currency) {
-      this.$store.dispatch(`currencyOnChange`, {currency, group});
+      this.$store.dispatch(`currencyOnChange`, { currency, group });
     },
     isActive(currency, active) {
-     return currency === active ? true : false;
+      return currency === active ? true : false;
     },
   },
 };
@@ -43,8 +45,5 @@ input.btn-check {
   display: none;
 }
 
-input[type="radio"]:checked + label {
-  background-color: blue;
-  border-color: blue;
-}
+
 </style>
